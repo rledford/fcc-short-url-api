@@ -1,0 +1,21 @@
+{
+   "name": "short_url",
+   "version": "1.0.0",
+   "description": "API for converting URLs into short names (id) and redirecting requests that match one of those ids to the original URL used to generate the id.",
+   "main": "server.js",
+   "scripts": {
+      "start": "node server",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [
+      "api",
+      "short",
+      "url"
+   ],
+   "dependencies":{
+      "express": "~4.8.8",
+      "mongodb": "1.4.38"
+   },
+   "author": "Ryan Ledford",
+   "license": "MIT"
+}
