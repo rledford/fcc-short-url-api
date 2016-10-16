@@ -36,7 +36,7 @@ function setShortUrlId(val){
 function getShortUrlId(){
    return shortUrlId;
 }
-   
+
 exports.validateUrl = function(req, res, next){
    console.log("validating url");
    var options = {
@@ -97,6 +97,7 @@ exports.shortUrlLookup = function(req, res, next){
                                           console.log("updating id tracker");
                                           if(err){
                                              console.log("failed to update tracker");
+                                             console.log(err);
                                              return next();
                                           }
                                           console.log("inserting new short_url document into collection");
@@ -111,7 +112,7 @@ exports.shortUrlLookup = function(req, res, next){
                                           });
                                        });
                                     }
-                                    
+
                                  } else {
                                     return next();
                                  }
@@ -129,12 +130,16 @@ exports.shortUrlLookup = function(req, res, next){
    });
 };
 
-exports.reportShortUrlResult = function(req, res){ 
+exports.reportShortUrlResult = function(req, res){
    closeDbConnection();
    console.log("reporting results");
    console.log(getShortUrlFound(), getShortUrlId());
    if(shortUrlFound && shortUrlId >= 0){
-      res.send("the short address for "+req.params[0]+" is "+shortUrlId);
+      res.write("Original URL\n");
+      res.write("https://fcc-api-project-rledford.c9users.io/short/"+req.params[0]);
+      res.write("\n\nShort URL\n");
+      res.write("https://fcc-api-project-rledford.c9users.io/goto/"+shortUrlId);
+      res.end();
    }
    else{
       res.send("unable to resolve: "+req.params[0]);
