@@ -136,9 +136,9 @@ exports.reportShortUrlResult = function(req, res){
    console.log(getShortUrlFound(), getShortUrlId());
    if(shortUrlFound && shortUrlId >= 0){
       res.write("Original URL\n");
-      res.write("https://fcc-api-project-rledford.c9users.io/short/"+req.params[0]);
+      res.write("https://short-url-rl.herokuapp.com/short/"+req.params[0]);
       res.write("\n\nShort URL\n");
-      res.write("https://fcc-api-project-rledford.c9users.io/goto/"+shortUrlId);
+      res.write("https://short-url-rl.herokuapp.com/goto/"+shortUrlId);
       res.end();
    }
    else{
