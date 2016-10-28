@@ -1,6 +1,10 @@
-var config = require('./config'),
+var dotenv = require('dotenv'),
    express = require('express'),
    app = express();
+
+dotenv.load();
+//initialize config after dotenv to the variables are available
+var config = require('./config');
 
 //apply routing middleware
 require('./short.server.route')(app);

@@ -14,7 +14,8 @@
    ],
    "dependencies":{
       "express": "~4.8.8",
-      "mongodb": "1.4.38"
+      "mongodb": "1.4.38",
+      "dotenv": "latest"
    },
    "author": "Ryan Ledford",
    "license": "MIT"
